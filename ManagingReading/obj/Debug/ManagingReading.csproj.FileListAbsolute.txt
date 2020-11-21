@@ -1,0 +1,66 @@
+C:\Users\user\source\repos\ManagingReading\ManagingReading\obj\Debug\ManagingReading.csprojAssemblyReference.cache
+C:\Users\user\source\repos\ManagingReading\ManagingReading\obj\Debug\ManagingReading.Properties.Resources.resources
+C:\Users\user\source\repos\ManagingReading\ManagingReading\obj\Debug\ManagingReading.csproj.GenerateResource.cache
+C:\Users\user\source\repos\ManagingReading\ManagingReading\bin\Debug\Guna.UI2.dll
+C:\Users\user\source\repos\ManagingReading\ManagingReading\obj\Debug\ManagingReading.csproj.CopyComplete
+C:\Users\user\source\repos\ManagingReading\ManagingReading\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\user\source\repos\ManagingReading\ManagingReading\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\user\source\repos\ManagingReading\ManagingReading\bin\Debug\LiveCharts.pdb
+C:\Users\user\source\repos\ManagingReading\ManagingReading\bin\Debug\LiveCharts.xml
+C:\Users\user\source\repos\ManagingReading\ManagingReading\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\user\source\repos\ManagingReading\ManagingReading\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\user\source\repos\ManagingReading\ManagingReading\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\user\source\repos\ManagingReading\ManagingReading\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\user\source\repos\ManagingReading\ManagingReading\obj\Debug\ManagingReading.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\ManagingReading\ManagingReading\obj\Debug\ManagingReading.Form3.resources
+C:\Users\user\source\repos\ManagingReading\ManagingReading\obj\Debug\ManagingReading.Start.resources
+C:\Users\user\source\repos\ManagingReading\ManagingReading\obj\Debug\ManagingReading.DashBoard.resources
+C:\Users\user\source\repos\ManagingReading\ManagingReading\bin\Debug\Managing Reading.exe.config
+C:\Users\user\source\repos\ManagingReading\ManagingReading\bin\Debug\Managing Reading.exe
+C:\Users\user\source\repos\ManagingReading\ManagingReading\bin\Debug\Managing Reading.pdb
+C:\Users\user\source\repos\ManagingReading\ManagingReading\obj\Debug\Managing Reading.exe
+C:\Users\user\source\repos\ManagingReading\ManagingReading\obj\Debug\Managing Reading.pdb
+C:\Users\user\source\repos\Managing Reading\ManagingReading\bin\Debug\Managing Reading.exe.config
+C:\Users\user\source\repos\Managing Reading\ManagingReading\bin\Debug\Managing Reading.exe
+C:\Users\user\source\repos\Managing Reading\ManagingReading\bin\Debug\Managing Reading.pdb
+C:\Users\user\source\repos\Managing Reading\ManagingReading\bin\Debug\Guna.UI2.dll
+C:\Users\user\source\repos\Managing Reading\ManagingReading\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\user\source\repos\Managing Reading\ManagingReading\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\user\source\repos\Managing Reading\ManagingReading\bin\Debug\LiveCharts.pdb
+C:\Users\user\source\repos\Managing Reading\ManagingReading\bin\Debug\LiveCharts.xml
+C:\Users\user\source\repos\Managing Reading\ManagingReading\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\user\source\repos\Managing Reading\ManagingReading\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\user\source\repos\Managing Reading\ManagingReading\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\user\source\repos\Managing Reading\ManagingReading\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\user\source\repos\Managing Reading\ManagingReading\obj\Debug\ManagingReading.csprojAssemblyReference.cache
+C:\Users\user\source\repos\Managing Reading\ManagingReading\obj\Debug\ManagingReading.DashBoard.resources
+C:\Users\user\source\repos\Managing Reading\ManagingReading\obj\Debug\ManagingReading.Form3.resources
+C:\Users\user\source\repos\Managing Reading\ManagingReading\obj\Debug\ManagingReading.Properties.Resources.resources
+C:\Users\user\source\repos\Managing Reading\ManagingReading\obj\Debug\ManagingReading.Start.resources
+C:\Users\user\source\repos\Managing Reading\ManagingReading\obj\Debug\ManagingReading.csproj.GenerateResource.cache
+C:\Users\user\source\repos\Managing Reading\ManagingReading\obj\Debug\ManagingReading.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Managing Reading\ManagingReading\obj\Debug\ManagingReading.csproj.CopyComplete
+C:\Users\user\source\repos\Managing Reading\ManagingReading\obj\Debug\Managing Reading.exe
+C:\Users\user\source\repos\Managing Reading\ManagingReading\obj\Debug\Managing Reading.pdb
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\bin\Debug\Managing Reading.exe.config
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\bin\Debug\Managing Reading.exe
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\bin\Debug\Managing Reading.pdb
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\bin\Debug\Guna.UI2.dll
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\bin\Debug\LiveCharts.pdb
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\bin\Debug\LiveCharts.xml
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\obj\Debug\ManagingReading.csprojAssemblyReference.cache
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\obj\Debug\ManagingReading.DashBoard.resources
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\obj\Debug\ManagingReading.Form3.resources
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\obj\Debug\ManagingReading.Properties.Resources.resources
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\obj\Debug\ManagingReading.Start.resources
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\obj\Debug\ManagingReading.csproj.GenerateResource.cache
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\obj\Debug\ManagingReading.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\obj\Debug\ManagingReading.csproj.CopyComplete
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\obj\Debug\Managing Reading.exe
+C:\Users\user\source\repos\Reading Group Acivment analysis\ManagingReading\obj\Debug\Managing Reading.pdb
