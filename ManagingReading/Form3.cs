@@ -22,7 +22,7 @@ namespace ManagingReading
         public string[] Most8MemberRead = new string[8];
 
         public int[] Most8MemberReadPage = new int[8];
-        int n = 1;
+       
         public Form3(List<int> number, List<string> memberN, string text)
         {
             
@@ -32,8 +32,7 @@ namespace ManagingReading
             cartesianChart1.AxisY.Clear();
             label4.Text = text;
             
-            n = (int)(number.Max() / 10);
-
+          
             if (memberN.Count >= 8)
             {
 
@@ -52,6 +51,7 @@ namespace ManagingReading
             {
                 new ColumnSeries
                 {
+                        ColumnPadding =5,
                     Title = "",
                     Values = new ChartValues<int>(Most8MemberReadPage.ToList())
                 }
@@ -87,6 +87,7 @@ namespace ManagingReading
             {
                 new ColumnSeries
                 {
+                        ColumnPadding =5,
                     Title = "",
                     Values = new ChartValues<int>(number)
                 }
@@ -105,7 +106,7 @@ namespace ManagingReading
                 {
 
                     Title = " ",
-                    //     MinValue =1,
+                    
                     Separator = new Separator { Step = (number.Max() / 10)+1 },
                     LabelFormatter = value => value.ToString("N"),
 
@@ -120,41 +121,17 @@ namespace ManagingReading
 
 
 
-        public void chartt(List<int> number, List<string> memberN)
 
 
+        protected override CreateParams CreateParams
         {
-
-
-            cartesianChart1.Series = new LiveCharts.SeriesCollection
+            get
             {
-                new ColumnSeries
-                {
-                   ColumnPadding =5,
-                    Title = "",
-                    Values = new ChartValues<int>(number)
-                }
-            };
-            cartesianChart1.AxisX.Add(new LiveCharts.Wpf.Axis
-            {
-                Title = "",
-                Separator = new Separator { Step = 1 },
-                Labels = memberN
-
-
-            });
-       
-            cartesianChart1.AxisY.Add(new LiveCharts.Wpf.Axis
-            {
-               
-                Title = " ",
-         
-                LabelFormatter = value => value.ToString("N"),
-
-
-            });
-
-
+                const int CS_DROPSHADOW = 0x00020000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
         }
 
 
@@ -164,28 +141,12 @@ namespace ManagingReading
 
 
 
-
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        public void ffff(List<int>mm, List<string> m)
-        {
-         
-           this.Show();
-            cartesianChart1.AxisX.Clear();
-           cartesianChart1.AxisY.Clear();
-            chartt(mm,m );
-        }
         private void guna2ImageButton4_Click(object sender, EventArgs e)
         {
             this.Close();
 
         }
 
-
-  
+    
     }
 }

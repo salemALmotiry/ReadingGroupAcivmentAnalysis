@@ -68,7 +68,7 @@
             this.guna2ImageButton4.ImageFlip = Guna.UI2.WinForms.Enums.FlipOrientation.Vertical;
             this.guna2ImageButton4.ImageRotate = 0F;
             this.guna2ImageButton4.ImageSize = new System.Drawing.Size(34, 34);
-            this.guna2ImageButton4.Location = new System.Drawing.Point(509, 6);
+            this.guna2ImageButton4.Location = new System.Drawing.Point(502, 3);
             this.guna2ImageButton4.Name = "guna2ImageButton4";
             this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(50, 50);
             this.guna2ImageButton4.PressedState.Parent = this.guna2ImageButton4;
@@ -134,6 +134,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Statisical Report";
             this.TransparencyKey = System.Drawing.Color.Transparent;
+           
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);

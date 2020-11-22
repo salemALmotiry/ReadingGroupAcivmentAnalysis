@@ -34,6 +34,7 @@ namespace ManagingReading
         bool TimerNeeded2 = true;
         bool TimerNeeded3 = true;
         bool TimerNeeded4 = true;
+        FilterFile fil = new FilterFile();
 
         int countTimerNeeded1 = 0;
         int countTimerNeeded2 = 0;
@@ -45,8 +46,6 @@ namespace ManagingReading
         bool bk = true;
 
 
-        FilterFile fil = new FilterFile();
-
         double[,] temp12 = new double[4, 1];
 
 
@@ -54,12 +53,7 @@ namespace ManagingReading
         {
 
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
 
-          
-            this.StartPosition = FormStartPosition.Manual;
-            this.Top = (Screen.PrimaryScreen.Bounds.Height - this.Height) / 2;
-            this.Left = (Screen.PrimaryScreen.Bounds.Width - this.Width) / 2;
 
             guna2ShadowPanel1.Hide();
             hd = spanel.Height;
@@ -117,7 +111,7 @@ namespace ManagingReading
 
                 if (countTimerNeeded1 >= fil.totalpage)
                 {
-                    //     timer2.Stop();
+                    
                     TimerNeeded1 = false;
 
                     countTimerNeeded1 = fil.totalpage;
@@ -134,11 +128,10 @@ namespace ManagingReading
             {
                 if (countTimerNeeded2 >= fil.totalmembers)
                 {
-                    //     timer2.Stop();
 
                     TimerNeeded2 = false;
                     countTimerNeeded2 = fil.totalmembers;
-                    TotalMemberLabel.Text= countTimerNeeded2.ToString();
+                    TotalMemberLabel.Text = countTimerNeeded2.ToString();
                 }
 
 
@@ -153,7 +146,7 @@ namespace ManagingReading
 
             if (countTimerNeeded3 >= fil.totalbooks)
             {
-                //     timer2.Stop();
+             
                 TimerNeeded3 = false;
 
                 countTimerNeeded3 = fil.totalbooks;
@@ -163,13 +156,13 @@ namespace ManagingReading
             {
                 totalbooksCounterlabel.Text = countTimerNeeded3.ToString();
 
-                countTimerNeeded3 += (int)temp12[1,0];
+                countTimerNeeded3 += (int)temp12[1, 0];
             }
 
-          
+
             if (countTimerNeeded4 >= fil.totalBookRead)
             {
-                //     timer2.Stop();
+               
                 TimerNeeded4 = false;
 
                 countTimerNeeded4 = fil.totalBookRead;
@@ -201,7 +194,7 @@ namespace ManagingReading
                 cartesianChart2.AxisX.Clear();
                 cartesianChart2.AxisY.Clear();
 
-              
+
                 TimerNeeded1 = true;
                 TimerNeeded2 = true;
                 TimerNeeded3 = true;
@@ -227,11 +220,11 @@ namespace ManagingReading
                 {
                     chart1(fil.Most5BookReadTimes.ToList(), fil.Most5BookRead.ToList()); ;
 
-                  //  MessageBox.Show(fil.Most5BookReadTimes[4].ToString());
+                    //  MessageBox.Show(fil.Most5BookReadTimes[4].ToString());
                 }
                 else
                 {
-                    chart1(fil.MostBookReadCount, fil.BookInfoForName); ;
+                    chart1(fil.RankOfBookReadINT, fil.BookInfoForName); ;
 
                 }
 
@@ -248,7 +241,7 @@ namespace ManagingReading
             this.Close();
             Start s = new Start();
             s.Close();
-           
+
         }
 
         public void chartt(List<int> number, List<string> memberN)
@@ -260,8 +253,8 @@ namespace ManagingReading
             cartesianChart1.Series = new LiveCharts.SeriesCollection
             {
                 new ColumnSeries
-                { 
-                 
+                {
+
                     ColumnPadding =5,
                     Title = "page",
                     Values = new ChartValues<int>(number)
@@ -276,12 +269,12 @@ namespace ManagingReading
 
 
             });
-      
+
             cartesianChart1.AxisY.Add(new LiveCharts.Wpf.Axis
             {
                 Title = " ",
-                    MinValue =1,
-                   Separator = new Separator { Step = (number.Max()/10)+1 },
+                MinValue = 1,
+                Separator = new Separator { Step = (number.Max() / 10) + 1 },
                 LabelFormatter = value => value.ToString("N"),
 
 
@@ -300,7 +293,7 @@ namespace ManagingReading
                 {
                        ColumnPadding =5,
                     Title = "Book",
-                   
+
                     Values = new ChartValues<int>(number),
 
                 }
@@ -311,9 +304,9 @@ namespace ManagingReading
             cartesianChart2.AxisX.Add(new Axis
             {
                 Title = "",
-                Separator = new Separator  {  Step = 1  },
+                Separator = new Separator { Step = 1 },
                 LabelsRotation = 16,
-           
+
                 Labels = memberN,
 
 
@@ -321,10 +314,10 @@ namespace ManagingReading
 
             cartesianChart2.AxisY.Add(new LiveCharts.Wpf.Axis
             {
-               
+
                 Title = " ",
-             
-                Separator = new Separator { Step = (number.Max()/10)+1},
+
+                Separator = new Separator { Step = (number.Max() / 10) + 1 },
                 LabelFormatter = value => value.ToString("N")
 
 
@@ -351,74 +344,88 @@ namespace ManagingReading
 
             openFileDialog1.Filter = "Text|*.txt|All|*.*";
             openFileDialog1.FileName = ".txt";
-        
+
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-
-                DialogCheck = true;
-                text = System.IO.File.ReadAllText(openFileDialog1.FileName);
-
-                fil.filterFile('1', "readinginfo", "endfile", text, '_');
-
-                fil.filterFile('2', "booksinfo", "readinginfo", text, '_');
-
-                fil.filterFile('3', "memberinfo", "booksinfo", text, '_');
-
-                //     fil.totalconut();
-                fil.setup();
-
-                if (fil.totalpage >= 100)
+                try
                 {
-                    temp12[0, 0] = fil.totalpage / 30;
+                    DialogCheck = true;
+
+                    text = System.IO.File.ReadAllText(openFileDialog1.FileName);
+
+
+                    fil.filterFile('1', "readinginfo", "endfile", text, '_');
+
+                    fil.filterFile('2', "booksinfo", "readinginfo", text, '_');
+
+                    fil.filterFile('3', "memberinfo", "booksinfo", text, '_');
+
+
+                    //     fil.totalconut();
+                    fil.setup();
+
+                    if (fil.totalpage >= 100)
+                    {
+                        temp12[0, 0] = fil.totalpage / 30;
+
+                    }
+                    else
+                    {
+                        temp12[0, 0] = 3;
+                    }
+                    if (fil.totalbooks >= 100)
+                    {
+                        temp12[1, 0] = fil.totalbooks / 30;
+
+                    }
+                    else
+                    {
+                        temp12[1, 0] = 3;
+                    }
+
+                    if (fil.totalmembers >= 100)
+                    {
+                        temp12[2, 0] = fil.totalmembers / 30;
+
+                    }
+                    else
+                    {
+                        temp12[2, 0] = 3;
+                    }
+
+                    if (fil.totalBookRead >= 100)
+                    {
+                        temp12[3, 0] = fil.totalBookRead / 30;
+
+
+                    }
+                    else
+                    {
+                        temp12[3, 0] = 3;
+                    }
+
+
+
+
+
+
+                    MainRe_Click(sender, e);
 
                 }
-                else
+                catch
                 {
-                    temp12[0, 0] = 3;
+                    MessageBox.Show("ReSart Program or select correct file ");
                 }
-                if (fil.totalbooks >= 100)
-                {
-                    temp12[1, 0] = fil.totalbooks / 30;
-
-                }
-                else
-                {
-                    temp12[1, 0] = 3;
-                }
-
-                if (fil.totalmembers >= 100)
-                {
-                    temp12[2, 0] = fil.totalmembers / 30;
-
-                }
-                else
-                {
-                    temp12[2, 0] = 3;
-                }
-
-                if (fil.totalBookRead >= 100)
-                {
-                    temp12[3, 0] = fil.totalBookRead / 30;
-
-
-                }
-                else
-                {
-                    temp12[3, 0] = 3;
-                }
-
-
-
-
-
-
-                MainRe_Click(sender, e);
-
-            }else
+            }
+            else
             {
                 DialogCheck = false;
             }
+
+
         }
+    
+        
 
 
 
@@ -440,7 +447,7 @@ namespace ManagingReading
                 for (int i = 0; i < fil.BookInfoForName.Count; i++)
                 {
 
-                    string[] d = { (i + 1).ToString(), fil.BookInfoForName[i], fil.MostBookReadCount[i].ToString() };
+                    string[] d = { (i + 1).ToString(), fil.BookInfoForName[i], fil.RankOfBookReadINT[i].ToString() };
 
 
                     ListViewItem item = new ListViewItem(d);
@@ -493,23 +500,18 @@ namespace ManagingReading
 
         }
 
-        private void panel66_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
    
      
         private void statisticalReportsforBook_Click(object sender, EventArgs e)
         {
-            Form3 f = new Form3(fil.MostBookReadCount, fil.BookInfoForName,MostBookReadlabel.Text);
+            Form3 f = new Form3(fil.RankOfBookReadINT, fil.BookInfoForName, MostBookReadlabel.Text);
 
             f.Show();
         }
 
         private void statisticalReportsforCategories_Click(object sender, EventArgs e)
         {
-            Form3 f = new Form3(fil.Categoriescount, fil.BookInfoForCategories,MostCateReadlabel.Text);
+            Form3 f = new Form3(fil.Categoriescount, fil.BookInfoForCategories, MostCateReadlabel.Text);
 
             f.Show();
         }
@@ -524,13 +526,13 @@ namespace ManagingReading
 
         private void statisticalReportsforMemReadBook_Click(object sender, EventArgs e)
         {
-            
+
             Form3 f = new Form3(fil.NumberOfbookreadFoeEachMember, fil.MemberNameRankForBookRead, MostMemReadBooklabel.Text);
 
             f.Show();
 
         }
-
+    
 
         private void DashDoard_Load(object sender, EventArgs e)
         {
@@ -560,7 +562,27 @@ namespace ManagingReading
             mov = 0;
         }
 
-      
+  
+
+        private void listViewForBookRead_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+            InfoBook info = new InfoBook();
+
+            string indexstr =listViewForBookRead.SelectedItems[0].SubItems[0].Text;
+
+
+            int index = Convert.ToInt32( indexstr);
+
+            info.label2.Text ="Categories : "+ fil.categories[index-1].ToString();
+
+            info.label3.Text = "Page : "+fil.bookPage[index-1].ToString();
+
+            info.Show();
+
+        }
+
+     
     }
     }
 

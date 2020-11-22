@@ -953,6 +953,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.listViewForBookRead.FullRowSelect = true;
             this.listViewForBookRead.HideSelection = false;
             this.listViewForBookRead.Location = new System.Drawing.Point(18, 91);
             this.listViewForBookRead.Name = "listViewForBookRead";
@@ -960,6 +961,7 @@
             this.listViewForBookRead.TabIndex = 0;
             this.listViewForBookRead.UseCompatibleStateImageBehavior = false;
             this.listViewForBookRead.View = System.Windows.Forms.View.Details;
+            this.listViewForBookRead.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewForBookRead_MouseDoubleClick);
             // 
             // columnHeader1
             // 

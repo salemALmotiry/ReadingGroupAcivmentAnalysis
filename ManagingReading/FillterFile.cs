@@ -13,7 +13,7 @@ namespace ManagingReading
         public List<string> memberPhone = new List<string>();//Done
 
 
-        private List<string> book = new List<string>();//Done
+        public List<string> book = new List<string>();//Done
         private List<string> bookName = new List<string>();//Done
         public List<string> categories = new List<string>();//Done
         public List<string> bookPage = new List<string>();
@@ -24,7 +24,7 @@ namespace ManagingReading
 
         public List<string> MemberNameNoDuplicates = new List<string>();//Done
 
-        private List<string> MemberPageReadString = new List<string>();//Done
+        public List<string> MemberPageReadString = new List<string>();//Done
 
         private List<int> MemberPageRead = new List<int>();//Done
 
@@ -41,14 +41,14 @@ namespace ManagingReading
 
         public List<string> BookNoDuplicates = new List<string>();//Done
 
-        public List<int> MostBookReadCount = new List<int>();//Done
+        public List<int> RankOfBookReadINT = new List<int>();//Done
 
         public List<string> BookInfoForName = new List<string>();//Done
         public List<string> BookInfoForCategories = new List<string>();//Done
         public List<string> BookInfoForPage = new List<string>();//Done
 
         public List<int> Categoriescount = new List<int>();//Done
-        private List<int> mostBookread = new List<int>();//Done
+        private List<int> RankOfBookReadINTNeededForCalcat = new List<int>();//Done
 
         private List<string> templisStrint = new List<string>();
         private List<int> templisInt = new List<int>();
@@ -67,8 +67,49 @@ namespace ManagingReading
         public List<int> NumberOfbookreadFoeEachMember = new List<int>();
 
         ~FilterFile() { }
+
+
+        public void initiallyStart()
+        {
+
+            member.Clear();
+            memberName.Clear();
+            memberEmail.Clear();
+            memberPhone.Clear();
      
-            public void filterFile(char Bet1And2, string beginning, string ending, string allLineFromFile, char splitsymbol)
+            book.Clear();
+            bookName.Clear();
+            categories.Clear();
+            bookPage.Clear();
+
+            MemberNameDuplicates.Clear();
+            MemberNameNoDuplicates.Clear();
+            MemberPageReadString.Clear();
+
+            MemberPageRead.Clear();
+
+
+            totalBookRead = 0;
+            totalbooks = 0;
+            totalmembers = 0;
+            totalpage = 0;
+
+            BookDuplicates.Clear();
+
+            TotalPageReadForEachMember.Clear();
+            BookNoDuplicates.Clear();
+
+            RankOfBookReadINT.Clear();
+
+
+            BookInfoForCategories.Clear();
+            BookInfoForName.Clear();
+            BookInfoForPage.Clear();
+
+            MemberNameRankForBookRead.Clear();
+            NumberOfbookreadFoeEachMember.Clear();
+        }
+        public void filterFile(char Bet1And2, string beginning, string ending, string allLineFromFile, char splitsymbol)
         {
             string[] str = allLineFromFile.Split(splitsymbol);
             bool first = true;
@@ -257,7 +298,7 @@ namespace ManagingReading
                 for (int i = 0; i < 5; i++)
                 {
                     Most5BookRead[i] = BookInfoForName[i].Trim(); ;
-                    Most5BookReadTimes[i] = MostBookReadCount[i];
+                    Most5BookReadTimes[i] = RankOfBookReadINT[i];
                 }
             }
 
@@ -270,70 +311,89 @@ namespace ManagingReading
 
             replceIDByName();
             memberTotalReadConut();
-            order3();
+            RankingMemberByPageRead();
             MostCategories();
 
-            order();
+            RankingCategoriecount();
 
-            order2();
-            //   l. order();
-            //  l.order();
-            totalconut();
-            Bookcoun();
+            RankingMemberByBooks();
+
+            CountTotalBMPBR();
+
 
             HowMuchMemberReadBOOK();
             TopfoGraph();
-            order4();
+            RankingMemberByBook();
 
-            totalconut();
+            CountTotalBMPBR();
         }
 
-        public void MostCategories()
+        public void RankingMemberByPageRead()
         {
-            //   MostBookRead();
             templisInt.Clear();
             templisStrint.Clear();
 
-            //    BookInfoForName.Clear();
-            //    BookInfoForPage.Clear();
-            //     mostBookread.Clear();
-            MostBookRead();
-
-
-
-
-            //     BookInfoForCategories.Clear();
-
-            int x = 0;
-            for (int i = 0; i < BookInfoForCategories.Count; i++)
+            int m = MemberNameNoDuplicates.Count;
+            for (int i = 0; i < m; i++)
             {
-                if (templisStrint.Contains(BookInfoForCategories[i]))
+
+                int x = TotalPageReadForEachMember.Max();
+                int index = TotalPageReadForEachMember.IndexOf(x);
+                templisInt.Add(x);
+                templisStrint.Add(MemberNameNoDuplicates[index]);
+                TotalPageReadForEachMember.RemoveAt(index);
+                MemberNameNoDuplicates.RemoveAt(index);
+
+
+            }
+
+
+            TotalPageReadForEachMember.AddRange(templisInt);
+
+            MemberNameNoDuplicates.AddRange(templisStrint);
+
+
+        }
+
+
+
+        public void MostCategories()
+        {
+
+            templisInt.Clear();
+            templisStrint.Clear();
+
+
+            GiveListsOfBookInfo();
+
+
+            {
+                int x = 0;
+                for (int i = 0; i < BookInfoForCategories.Count; i++)
                 {
-                    continue;
-                }
-                for (int j = 0; j < BookInfoForCategories.Count; j++)
-                {
-                    if (BookInfoForCategories[i] == BookInfoForCategories[j])
+                    if (templisStrint.Contains(BookInfoForCategories[i]))
                     {
-                        //Console.WriteLine(mostBookread[j].ToString());
-                        x += mostBookread[j];
+                        continue;
                     }
+                    for (int j = 0; j < BookInfoForCategories.Count; j++)
+                    {
+                        if (BookInfoForCategories[i].Trim() == BookInfoForCategories[j].Trim())
+                        {
+
+                            x += RankOfBookReadINTNeededForCalcat[j];
+                        }
+                    }
+
+                    Categoriescount.Add(x);
+                    x = 0;
+                    templisStrint.Add(BookInfoForCategories[i]);
+
                 }
 
-                Categoriescount.Add(x);
-                x = 0;
-                templisStrint.Add(BookInfoForCategories[i]);
+                BookInfoForCategories.Clear();
 
+                BookInfoForCategories.AddRange(templisStrint);
             }
-
-            BookInfoForCategories.Clear();
-            for (int i = 0; i < templisStrint.Count; i++)
-            {
-                BookInfoForCategories.Add(templisStrint[i]);
-            }
-            // Console.WriteLine(BookInfoForCategories.Count);
-            //      BookInfoForCategories = templisStrint;
-
 
         }
 
@@ -341,7 +401,8 @@ namespace ManagingReading
 
 
 
-        public void order2()
+
+        public void RankingMemberByBooks()
         {
 
             List<string> templisStrint3 = new List<string>();
@@ -356,58 +417,31 @@ namespace ManagingReading
 
             for (int i = 0; i < y; i++)
             {
-                // Console.WriteLine(BookInfoForName.Count);
-                int x = MostBookReadCount.Max();
-                int index = MostBookReadCount.IndexOf(x);
+                int x = RankOfBookReadINT.Max();
+                int index = RankOfBookReadINT.IndexOf(x);
                 templisInt.Add(x);
                 templisStrint.Add(BookInfoForName[index]);
                 templisStrint3.Add(categories[index]);
                 templisStrint4.Add(BookInfoForPage[index]);
-                MostBookReadCount.RemoveAt(index);
+                RankOfBookReadINT.RemoveAt(index);
                 BookInfoForName.RemoveAt(index);
                 categories.RemoveAt(index);
                 BookInfoForPage.RemoveAt(index);
-                //        Console.WriteLine(x);
+
 
             }
 
 
 
-            MostBookReadCount.AddRange(templisInt);
+            RankOfBookReadINT.AddRange(templisInt);
             BookInfoForName.AddRange(templisStrint);
 
             bookPage = templisStrint4;
             categories = templisStrint3;
 
         }
-        public void order3()
-        {
-            templisInt.Clear();
-            templisStrint.Clear();
 
-            int m = MemberNameNoDuplicates.Count;
-            for (int i = 0; i < m; i++)
-            {
-                //     Console.WriteLine(MemberNameNoDuplicates.Count);
-                int x = TotalPageReadForEachMember.Max();
-                int index = TotalPageReadForEachMember.IndexOf(x);
-                templisInt.Add(x);
-                templisStrint.Add(MemberNameNoDuplicates[index]);
-                TotalPageReadForEachMember.RemoveAt(index);
-                MemberNameNoDuplicates.RemoveAt(index);
-                //     Console.WriteLine(x);
-
-            }
-
-
-            TotalPageReadForEachMember.AddRange(templisInt);
-
-            MemberNameNoDuplicates.AddRange(templisStrint);
-
-
-        }
-
-        public void order()
+        public void RankingCategoriecount()
         {
             templisInt.Clear();
             templisStrint.Clear();
@@ -416,14 +450,14 @@ namespace ManagingReading
             int m = BookInfoForCategories.Count;
             for (int i = 0; i < m; i++)
             {
-                //     Console.WriteLine(MemberNameNoDuplicates.Count);
+               
                 int x = Categoriescount.Max();
                 int index = Categoriescount.IndexOf(x);
                 templisInt.Add(x);
                 templisStrint.Add(BookInfoForCategories[index]);
                 Categoriescount.RemoveAt(index);
                 BookInfoForCategories.RemoveAt(index);
-                //     Console.WriteLine(x);
+          
 
             }
 
@@ -431,13 +465,12 @@ namespace ManagingReading
 
             BookInfoForCategories.AddRange(templisStrint);
 
-
         }
 
 
 
 
-        public void order4()
+        public void RankingMemberByBook()
         {
             templisInt.Clear();
             templisStrint.Clear();
@@ -447,14 +480,13 @@ namespace ManagingReading
             int m = MemberNameRankForBookRead.Count;
             for (int i = 0; i < m; i++)
             {
-                //     Console.WriteLine(MemberNameNoDuplicates.Count);
+
                 int x = NumberOfbookreadFoeEachMember.Max();
                 int index = NumberOfbookreadFoeEachMember.IndexOf(x);
                 templisInt.Add(x);
                 templisStrint.Add(MemberNameRankForBookRead[index]);
                 NumberOfbookreadFoeEachMember.RemoveAt(index);
                 MemberNameRankForBookRead.RemoveAt(index);
-                //     Console.WriteLine(x);
 
             }
 
@@ -470,15 +502,17 @@ namespace ManagingReading
 
 
 
-        public void Bookcoun()
+        public void CountBookReadAndRemoveBookDup()
         {
             int i = 0;
             int co = 0;
-            while (i <= BookDuplicates.Count - 1)
+
+            while (i < BookDuplicates.Count)
             {
                 if (BookNoDuplicates.Contains(BookDuplicates[i]))
                 {
                     i++;
+
                     continue;
 
 
@@ -486,7 +520,7 @@ namespace ManagingReading
 
                 foreach (string s in BookDuplicates)
                 {
-                    if (BookDuplicates[i].Contains(s))
+                    if (BookDuplicates[i].Trim() == s.Trim())
                     {
                         co += 1;
                     }
@@ -495,7 +529,7 @@ namespace ManagingReading
 
 
                 BookNoDuplicates.Add(BookDuplicates[i]);
-                MostBookReadCount.Add(co);
+                RankOfBookReadINT.Add(co);
                 i++;
                 co = 0;
 
@@ -503,7 +537,44 @@ namespace ManagingReading
         }
 
 
-        public void totalconut()
+
+        private void GiveListsOfBookInfo()
+        {
+
+
+            CountBookReadAndRemoveBookDup();
+            for (int i = 0; i < BookNoDuplicates.Count; i++)
+            {
+
+                for (int j = 0; j < book.Count; j++)
+                {
+                    //     string temp = BookNoDuplicates[i].Trim();
+
+                    if (BookNoDuplicates[i].Trim() == book[j].Trim())
+                    {
+
+                        BookInfoForName.Add(bookName[j]);
+                        BookInfoForCategories.Add(categories[j]);
+                        BookInfoForPage.Add(bookPage[j]);
+
+
+
+                        RankOfBookReadINTNeededForCalcat.Add(RankOfBookReadINT[i]);
+
+
+
+
+                    }
+
+
+
+                }
+
+            }
+
+
+        }
+        public void CountTotalBMPBR()
         {
             int i = 0;
 
@@ -514,61 +585,17 @@ namespace ManagingReading
 
             totalpage = i;
 
-            i = 0;
-       
-            foreach (string x in book)
-            {
-                i += 1; ;
-            }
 
-            totalbooks = i;
+            totalbooks = book.Count; ;
 
-          
+
 
             totalmembers = member.Count;
 
 
-        
+
 
             totalBookRead = BookNoDuplicates.Count;
-
-
-        }
-
-        private void MostBookRead()
-        {
-
-
-            Bookcoun();
-            for (int i = 0; i < BookNoDuplicates.Count; i++)
-            {
-
-                for (int j = 0; j < book.Count; j++)
-                {
-                    string temp = BookNoDuplicates[i].Trim();
-
-                    if (book[j].Contains(temp))
-                    {
-                        if (book[j].Contains(temp))
-                        {
-                            BookInfoForName.Add(bookName[j]);
-                            BookInfoForCategories.Add(categories[j]);
-                            BookInfoForPage.Add(bookPage[j]);
-                            //        BookInfo.Add("categories:" + categories[j]);
-
-
-                            mostBookread.Add(MostBookReadCount[i]);
-
-                        }
-
-
-                    }
-
-
-
-                }
-
-            }
 
 
         }
@@ -598,19 +625,24 @@ namespace ManagingReading
         }
 
 
+
         public void HowMuchMemberReadBOOK()
         {
             List<string> temp = new List<string>();
+
             int numberOfbookread = 0;
+
 
             int i = 0;
             while (i < MemberNameNoDuplicates.Count)
             {
-                //string temp = MemberNameNoDuplicates[i].Trim();
+
                 for (int k = 0; k < MemberNameDuplicates.Count; k++)
                 {
 
                     string temp1 = MemberNameDuplicates[k].Trim();
+
+
                     if (MemberNameNoDuplicates[i] == temp1)
                     {
                         if (!temp.Contains(BookDuplicates[k]))
@@ -620,8 +652,6 @@ namespace ManagingReading
                             temp.Add(BookDuplicates[k]);
                         }
 
-                        //  cont += MemberPageRead[k];
-                        //   numberOfbookread +=1;
                     }
 
                 }
@@ -636,24 +666,26 @@ namespace ManagingReading
         }
         public void memberTotalReadConut()
         {
+
             removeMemberNameDuplicates();
             convertpage();
 
             int i = 0;
             int cont = 0;
 
-            //int m = 0;
+
             while (i < MemberNameNoDuplicates.Count)
             {
-                //string temp = MemberNameNoDuplicates[i].Trim();
+
                 for (int k = 0; k < MemberNameDuplicates.Count; k++)
                 {
 
                     string temp1 = MemberNameDuplicates[k].Trim();
+
                     if (MemberNameNoDuplicates[i] == (temp1))
                     {
                         cont += MemberPageRead[k];
-                        //   numberOfbookread +=1;
+
                     }
                 }
 
@@ -663,6 +695,7 @@ namespace ManagingReading
                 i++;
             }
         }
+
 
 
 
@@ -711,9 +744,9 @@ namespace ManagingReading
 
                 if (!member.Contains(s.Trim()))
                 {
-                    Console.WriteLine(s);
+
                     int index = MemberNameDuplicates.IndexOf(s);
-                    Console.WriteLine(index);
+
                     MemberNameDuplicates.RemoveAt(index);
                     BookDuplicates.RemoveAt(index);
                     MemberPageReadString.RemoveAt(index);
