@@ -5,7 +5,9 @@
 You must see example file  
 
 
-Explanation of a file
+Explanation of a file:
+
+
 frist member info 
 
 member it is id 
