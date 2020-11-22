@@ -11,8 +11,11 @@ Explanation of a file:
 frist member info 
 
 member it is id 
+
 member name 
+
 Email
+
 phone 
 
 Example
@@ -25,8 +28,11 @@ second books info
 
 
 book as id 
+
 book name 
+
 book page 
+
 categories
 
 Example
@@ -41,7 +47,9 @@ reading info
 
 
 member. Is an id for a member get form member info (NOTE: if member id is not in member info all information reading of this member will be IGNORED)
+
 book. Is as id for a book get from books info (NOTE: if book id is not in book info all information reading of this memebr will be IGNORED)
+
 page 
 
 Example
