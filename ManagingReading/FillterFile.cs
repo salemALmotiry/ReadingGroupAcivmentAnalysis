@@ -53,6 +53,9 @@ namespace ManagingReading
         private List<string> templisStrint = new List<string>();
         private List<int> templisInt = new List<int>();
 
+        public List<string> MemberNameRankForBookRead = new List<string>();//Done
+
+        public List<int> NumberOfbookreadFoeEachMember = new List<int>();
 
         public string[] Most8MemberRead = new string[8];
 
@@ -62,10 +65,7 @@ namespace ManagingReading
 
         public int[] Most5BookReadTimes = new int[5];
 
-        public List<string> MemberNameRankForBookRead = new List<string>();//Done
-
-        public List<int> NumberOfbookreadFoeEachMember = new List<int>();
-
+  
         ~FilterFile() { }
 
 
@@ -306,17 +306,21 @@ namespace ManagingReading
 
 
         }
+
+
         public void setup()
         {
 
             replceIDByName();
             memberTotalReadConut();
+        
+            GiveListsOfBookInfo();
             RankingMemberByPageRead();
+            RankingByBooks();
             MostCategories();
-
             RankingCategoriecount();
 
-            RankingMemberByBooks();
+
 
             CountTotalBMPBR();
 
@@ -325,8 +329,9 @@ namespace ManagingReading
             TopfoGraph();
             RankingMemberByBook();
 
-            CountTotalBMPBR();
+
         }
+
 
         public void RankingMemberByPageRead()
         {
@@ -364,7 +369,7 @@ namespace ManagingReading
             templisStrint.Clear();
 
 
-            GiveListsOfBookInfo();
+        
 
 
             {
@@ -402,8 +407,9 @@ namespace ManagingReading
 
 
 
-        public void RankingMemberByBooks()
+        public void RankingByBooks()
         {
+
 
             List<string> templisStrint3 = new List<string>();
 
@@ -413,31 +419,41 @@ namespace ManagingReading
 
             int y = BookInfoForName.Count;
 
-
+            categories.Clear();
+            categories.AddRange(BookInfoForCategories);
+            bookPage.Clear();
 
             for (int i = 0; i < y; i++)
             {
                 int x = RankOfBookReadINT.Max();
+
                 int index = RankOfBookReadINT.IndexOf(x);
+
                 templisInt.Add(x);
+
                 templisStrint.Add(BookInfoForName[index]);
+
                 templisStrint3.Add(categories[index]);
+
                 templisStrint4.Add(BookInfoForPage[index]);
-                RankOfBookReadINT.RemoveAt(index);
-                BookInfoForName.RemoveAt(index);
+
                 categories.RemoveAt(index);
+
                 BookInfoForPage.RemoveAt(index);
+                RankOfBookReadINT.RemoveAt(index);
+
+                BookInfoForName.RemoveAt(index);
+
 
 
             }
 
 
-
             RankOfBookReadINT.AddRange(templisInt);
             BookInfoForName.AddRange(templisStrint);
 
-            bookPage = templisStrint4;
-            categories = templisStrint3;
+            bookPage.AddRange( templisStrint4);
+            categories.AddRange(templisStrint3);
 
         }
 

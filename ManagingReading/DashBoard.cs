@@ -43,8 +43,7 @@ namespace ManagingReading
         bool DialogCheck = false;
         string text;
 
-        bool bk = true;
-
+       
 
         double[,] temp12 = new double[4, 1];
 
@@ -444,6 +443,7 @@ namespace ManagingReading
                 listViewForCategoies.Items.Clear();
                 listViewMemberRead.Items.Clear();
                 listViewFormemberReadBook.Items.Clear();
+           
                 for (int i = 0; i < fil.BookInfoForName.Count; i++)
                 {
 
