@@ -339,7 +339,7 @@ namespace ManagingReading
 
         private void DialogFile_Click(object sender, EventArgs e)
         {
-
+            
 
             openFileDialog1.Filter = "Text|*.txt|All|*.*";
             openFileDialog1.FileName = ".txt";
@@ -349,6 +349,7 @@ namespace ManagingReading
                 try
                 {
                     DialogCheck = true;
+                       
 
                     text = System.IO.File.ReadAllText(openFileDialog1.FileName);
 
@@ -362,11 +363,11 @@ namespace ManagingReading
 
                     //     fil.totalconut();
                     fil.setup();
-
+                   
                     if (fil.totalpage >= 100)
                     {
-                        temp12[0, 0] = fil.totalpage / 30;
-
+                        temp12[0, 0] = fil.totalpage /30;
+                     
                     }
                     else
                     {
@@ -402,7 +403,6 @@ namespace ManagingReading
                     {
                         temp12[3, 0] = 3;
                     }
-
 
 
 

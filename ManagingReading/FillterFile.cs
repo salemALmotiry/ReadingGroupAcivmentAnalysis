@@ -491,6 +491,7 @@ namespace ManagingReading
             templisInt.Clear();
             templisStrint.Clear();
 
+
             MemberNameRankForBookRead.AddRange(MemberNameNoDuplicates);
 
             int m = MemberNameRankForBookRead.Count;
@@ -512,6 +513,41 @@ namespace ManagingReading
             NumberOfbookreadFoeEachMember.AddRange(templisInt);
 
             MemberNameRankForBookRead.AddRange(templisStrint);
+
+
+            templisInt.Clear();
+            templisStrint.Clear();
+            //5 or more than 5 
+            int m1 = MemberNameRankForBookRead.Count;
+            for (int i = 0; i < m; i++)
+            {
+                int x = NumberOfbookreadFoeEachMember.Max();
+                int index = NumberOfbookreadFoeEachMember.IndexOf(x);
+                if (x >= 5)
+                {
+
+                    templisInt.Add(x);
+                    templisStrint.Add(MemberNameRankForBookRead[index]);
+                    NumberOfbookreadFoeEachMember.RemoveAt(index);
+                    MemberNameRankForBookRead.RemoveAt(index);
+                }
+                else
+                {
+                    NumberOfbookreadFoeEachMember.RemoveAt(index);
+                    MemberNameRankForBookRead.RemoveAt(index);
+                }
+
+
+            }
+
+
+
+
+            NumberOfbookreadFoeEachMember.AddRange(templisInt);
+
+            MemberNameRankForBookRead.AddRange(templisStrint);
+
+
         }
 
 
